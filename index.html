@@ -7,25 +7,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Page 1: Initial Question -->
     <div class="container" id="page1">
-        <h1>I have something to ask you...</h1>
+        <h1>I have a question for you...</h1>
         <button onclick="nextPage()">Click Me!</button>
     </div>
 
+    <!-- Page 2: Valentine Question -->
     <div class="container" id="page2" style="display: none;">
         <h1>Will you be my Valentine?</h1>
-        <button id="yesButton" onclick="yesResponse()">Yes</button>
-        <button id="noButton" onclick="noResponse()">No</button>
+        <button id="yesButton" onclick="handleYes()">Yes</button>
+        <button id="noButton" onclick="handleNo()">No</button>
     </div>
 
+    <!-- Page 3: Happy Page -->
     <div class="container" id="page3" style="display: none;">
-        <h1>Yay! You made me the happiest person!</h1>
+        <h1>Yay! You made me the happiest person! ❤️</h1>
         <img src="https://media.giphy.com/media/3o7abAHdYvZdBNnGZq/giphy.gif" alt="Happy GIF">
     </div>
 
+    <!-- Page 4: Try Again Page -->
     <div class="container" id="page4" style="display: none;">
-        <h1>Why would you do this to me? 😭</h1>
-        <img src="https://media.giphy.com/media/VX7yE2ZZItYda/giphy.gif" alt="Crying Cat GIF">
+        <h1>Try again! (Click "No" a few times first!)</h1>
+        <button onclick="goBackToQuestion()">Go Back</button>
     </div>
 
     <script src="script.js"></script>
