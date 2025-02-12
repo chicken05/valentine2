@@ -3,27 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentine?</title>
+    <title>For Drew</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Page 1: Initial Question -->
     <div class="container" id="page1">
+        <img src="https://i.pinimg.com/originals/71/6d/a6/716da611982b116f8999e0f5e128550b.gif" alt="qgif">
         <h1>I have a question for you...</h1>
         <button onclick="nextPage()">Click Me!</button>
     </div>
 
-    <!-- Page 2: Valentine Question -->
-    <div class="container" id="page2" style="display: none;">
+   <!-- Page 2: Valentine Question -->
+    <div id="page2" style="display: none;">
+        <img src="https://media.tenor.com/bUw9MvHlREoAAAAj/tkthao219-peach.gif" alt="gif">
         <h1>Will you be my Valentine?</h1>
-        <button id="yesButton" onclick="handleYes()">Yes</button>
-        <button id="noButton" onclick="handleNo()">No</button>
+        <div id="buttonContainer">
+            <button id="yesButton" onclick="handleYes()">Yes</button>
+            <button id="noButton" onclick="handleNo()">No</button>
+        </div>
     </div>
+
+
+
 
     <!-- Page 3: Happy Page -->
     <div class="container" id="page3" style="display: none;">
-        <h1>Yay! You made me the happiest person! ❤️</h1>
-        <img src="https://media.giphy.com/media/3o7abAHdYvZdBNnGZq/giphy.gif" alt="Happy GIF">
+        <h1>YESS! I love you Drew (°◡°♡)</h1>
+        <img src="https://i.pinimg.com/originals/0e/a4/a9/0ea4a9ad33776e807fbdfb55979fdfef.gif" alt="Happy GIF">
     </div>
 
     <!-- Page 4: Try Again Page -->
@@ -32,6 +39,9 @@
         <button onclick="goBackToQuestion()">Go Back</button>
     </div>
 
+    
+
     <script src="script.js"></script>
+    <div id="flashBackground" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-image: url('https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/66b3e688ccde70cabd67e8ec_68.png'); background-size: cover; background-position: center; opacity: 0.5; z-index: 1000;"></div>
 </body>
 </html>

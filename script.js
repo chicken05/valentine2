@@ -1,48 +1,92 @@
 let noCount = 0; // Track the number of times "No" is clicked
-const yesButtonMessages = [
-    "Yes",
-    "Please",
-    "Pretty Please",
-    "Please Drew",
-    "Why's it taking you this long?",
-    "Just say YES already!"
-];
 
-// Function to go to the next page
 function nextPage() {
     document.getElementById('page1').style.display = 'none';
     document.getElementById('page2').style.display = 'block';
 }
 
-// Function to handle "Yes" button click
 function handleYes() {
     if (noCount >= 5) {
-        // If "No" has been clicked at least 5 times, go to the happy page
         document.getElementById('page2').style.display = 'none';
         document.getElementById('page3').style.display = 'block';
     } else {
-        // If "No" hasn't been clicked enough, go to the "Try Again" page
         document.getElementById('page2').style.display = 'none';
         document.getElementById('page4').style.display = 'block';
     }
 }
 
-// Function to handle "No" button click
 function handleNo() {
-    noCount++; // Increment the "No" counter
     const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const flashBackground = document.getElementById('flashBackground');
 
-    // Increase the size of the "Yes" button
-    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    yesButton.style.fontSize = (currentSize + 5) + 'px';
+    // Get current size of Yes button
+    const currentWidth = parseFloat(window.getComputedStyle(yesButton).width);
+    const currentHeight = parseFloat(window.getComputedStyle(yesButton).height);
 
-    // Update the "Yes" button text based on the number of "No" clicks
-    if (noCount <= yesButtonMessages.length) {
-        yesButton.textContent = yesButtonMessages[noCount];
+    // Increase size of Yes button
+    const increaseFactor = 1.15; // Growth factor
+    const newWidth = currentWidth * increaseFactor;
+    const newHeight = currentHeight * increaseFactor;
+
+    yesButton.style.width = newWidth + 'px';
+    yesButton.style.height = newHeight + 'px';
+
+    // Gradually move the Yes button to overlap the No button
+    if (newWidth > 200) {
+        yesButton.style.transform = 'translateX(-20px)';
     }
+    if (newWidth > 300) {
+        yesButton.style.transform = 'translateX(-40px)';
+    }
+    if (newWidth > 400) {
+        yesButton.style.transform = 'translateX(-60px)';
+    }
+    if (newWidth > 500) {
+        yesButton.style.transform = 'translateX(-80px)';
+    }
+    if (newWidth > 600) {
+        yesButton.style.transform = 'translateX(-100px)';
+    }
+
+    // Allow Yes button to fill the screen smoothly
+    if (newWidth > window.innerWidth * 0.9) {
+        yesButton.style.width = '100vw';
+        yesButton.style.height = '100vh';
+        yesButton.style.borderRadius = '0';
+        yesButton.style.top = '0';
+        yesButton.style.left = '0';
+        yesButton.style.position = 'fixed';
+        yesButton.style.zIndex = '1000';
+        yesButton.style.transform = 'none'; // Reset any transform
+    }
+
+    // Change No button text dynamically
+    noCount++;
+    const noButtonMessages = [
+        "No", "Please", "Why not :(", "Pretty Please",
+        "Please Drew", "Why bb :(", "I BEG YOU", "😭",
+        "pls", "진짜 제발", "Ok then..."
+    ];
+    if (noCount < noButtonMessages.length) {
+        noButton.textContent = noButtonMessages[noCount];
+    }
+
+    // Flash the screen red
+    document.body.style.backgroundColor = 'red';
+
+    // Flash the background image
+    flashBackground.style.display = 'block';
+    setTimeout(() => {
+        flashBackground.style.display = 'none';
+    }, 300); // Flash duration
+
+    // Reset the background color after the flash
+    setTimeout(() => {
+        document.body.style.backgroundColor = '#ffcccb';
+    }, 300);
 }
 
-// Function to go back to the question page from the "Try Again" page
 function goBackToQuestion() {
     document.getElementById('page4').style.display = 'none';
     document.getElementById('page2').style.display = 'block';

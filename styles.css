@@ -1,3 +1,4 @@
+/* General body styling */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #ffcccb;
@@ -8,39 +9,73 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    transition: background-color 0.3s ease;
+    overflow: hidden;
 }
 
-.container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Remove white box */
+#page2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Heading styling */
 h1 {
     color: #ff1493;
+    margin-bottom: 20px;
 }
 
+/* Button container for initial side-by-side placement */
+#buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+/* General button styling */
 button {
     padding: 10px 20px;
     font-size: 16px;
-    margin: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     background-color: #ff69b4;
     color: white;
+    transition: background-color 0.3s, transform 0.3s;
+    position: relative;
 }
 
 button:hover {
     background-color: #ff1493;
 }
 
+/* Yes button */
 #yesButton {
-    transition: transform 0.2s;
+    width: 100px;
+    height: 50px;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensure padding is included in the width/height */
+    position: relative; /* Allow the button to grow and overlap */
 }
 
-img {
-    margin-top: 20px;
-    border-radius: 10px;
+/* No button */
+#noButton {
+    width: 100px;
+    height: 50px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Ensures No button stays in front initially */
+.no-visible {
+    position: relative;
+    z-index: 10;
+}
+
+/* Allows gradual covering of No button */
+.yes-growing {
+    position: relative !important;
+    z-index: 1 !important;
 }
