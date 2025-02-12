@@ -24,6 +24,7 @@ body {
 h1 {
     color: #ff1493;
     margin-bottom: 20px;
+    font-size: 2rem; /* Default font size */
 }
 
 /* Button container for initial side-by-side placement */
@@ -78,4 +79,29 @@ button:hover {
 .yes-growing {
     position: relative !important;
     z-index: 1 !important;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem; /* Smaller font size for mobile */
+    }
+
+    button {
+        padding: 8px 16px; /* Smaller padding for mobile */
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    #yesButton, #noButton {
+        width: 80px; /* Smaller button width for mobile */
+        height: 40px; /* Smaller button height for mobile */
+    }
+
+    #buttonContainer {
+        gap: 10px; /* Smaller gap between buttons for mobile */
+    }
+
+    .container img, #page2 img {
+        max-width: 80%; /* Ensure images don't overflow on small screens */
+    }
 }
